@@ -127,7 +127,7 @@ $.ajax({
 	*/
 	var rawParagraphHtml = $('<div></div>').html(parsedSection);
 	$('#pokemon-text').html($(rawParagraphHtml).find('p'));
-	var cleanedUp = $("a").contents().unwrap(); // https://api.jquery.com/unwrap/
+	// var cleanedUp = $("a").contents().unwrap(); // https://api.jquery.com/unwrap/
 });
 
 
