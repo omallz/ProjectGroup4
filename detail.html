@@ -35,11 +35,12 @@
     <h2> This website provides a RESTful API interface to highly detailed objects built from thousands of lines of data related to Pokémon. We specifically cover the video game franchise. Using this website, you can consume information on Pokémon, their moves, abilities, types, egg groups and much, much more. </H2>
     </div>
 
-    <div class="wrapper">
-      <input type="text" class="input" 
-        placeholder="Enter Pokemon Name or Number">
-        <a href="detail.html" class="searchbtn"><i class="fas fa-search"></i> </a>
-    </div>
+		<div class="">
+			<form method="get">
+				<input type="text" class="input" name="pokemonz" placeholder="Enter Pokemon Name or Number">
+				<button type="submit" value="Submit"><i class="fas fa-search"></i></button>
+			</form>
+		</div>
 
     <div class="wrapper">
      <div id="pokemon-details">
@@ -56,9 +57,12 @@
         <div id="pokemon-ability4"></div>
         <div id="pokemon-about"></div>
         <div id="pokemon-strength"></div>
-        <div id="pokemon-weakness"></div>
+		<div id="pokemon-weakness"></div>
+		<div id="pokemon-text"></div>
       </div>
-    </div>
+	</div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
