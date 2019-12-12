@@ -7,18 +7,32 @@ $.ajax({
     url: "https://pokeapi.co/api/v2/pokemon/" + searchValue,
     method: "GET"
 }).then(function(response) {
+	console.log(response);
 
 	// Adds padding to the ID, making it three digits which can be then used to embed a image from serebii.net
 	var pokemonID = response.id;
 	var pokemonIDString = pokemonID.toString();
 	var pokemonIDPrefixed = pokemonIDString.padStart(3, '0');
 	var pokemonMainImage = "https://serebii.net/pokemon/art/" + pokemonIDPrefixed + ".png";
-	$("#pokemon-image").append("<img src=" + pokemonMainImage + ">");
+	$("#pokemon-image1").append("<img src=" + pokemonMainImage + ">");
 
 	// General Attributes
     var pokemonName = response.name;
     var pokemonHeight = response.height * 10 + " cm";
 	var pokemonWeight = response.weight / 10 + " kg";
+	var pokemonSpecies = response.species.name;
+
+    // Base Stats
+    var pokemonSpeedStat = response.stats[0].base_stat // Speed
+    var pokemonSpecDefStat = response.stats[1].base_stat // Special Defense
+    var pokemonSpecAttStat = response.stats[2].base_stat // Special Attack
+    var pokemonDefenseStat = response.stats[3].base_stat // Defense 
+    var pokemonAttackStat = response.stats[4].base_stat // Attack
+	var pokemonHP = response.stats[5].base_stat // Hit Points (HP)
+
+	// Evolutions
+
+	var pokemon
 	
 	// Types
 	if (response.types[0].type.name) {
@@ -89,27 +103,55 @@ $.ajax({
 	}
 
 	// Append To Page
-    $("#pokemon-id").append("<p>" + pokemonIDPrefixed + "</p>");
-    $("#pokemon-name").append("<p>" + pokemonName + "</p>");
-    $("#pokemon-height").append("<p>" + pokemonHeight + "</p>"); // convert decimeters to centimeters
-	$("#pokemon-weight").append("<p>" + pokemonWeight + "</p>"); // convert hectograms to now kilograms
+    $("#pokemon-id").append("<span>" + pokemonIDPrefixed + "</span>");
+    $("#pokemon-name").append("<span>" + pokemonName + "</span>");
+    $("#pokemon-height").append("<span>" + pokemonHeight + "</span> <br>"); // convert decimeters to centimeters
+	$("#pokemon-weight").append("<span>" + pokemonWeight + "</span> <br>"); // convert hectograms to now kilograms
 	
+	$("#pokemon-ability1").append("<span>" + pokemonAbility1 + "</span>" + ",");
+	$("#pokemon-ability2").append("<span>" + pokemonAbility2 + "</span>" + ",");
+	
+    if (pokemonAbility3) {
+        $("#pokemon-ability3").append("<span>" + pokemonAbility3 + "</span>" + ",");
+    }
+    if (pokemonAbility4) {
+        $("#pokemon-ability4").append("<span>" + pokemonAbility4 + "</span>" + ",");
+    }
+
+
 	if (pokemonType1) {
-		$("#pokemon-type1").append("<p>" + pokemonType1 + "</p>");
+		$("#pokemon-type1").append("<span>" + pokemonType1 + "</span>");
 	}
 	if (pokemonType2) {
 		$("#pokemon-type2").append("<p>" + pokemonType2 + "</p>");
 	}
+	
+	if (pokemonSpecies) {
+		$("#pokemon-species").append("<span>" + pokemonSpecies + "</span> <br>");
+	}
+	// Base Stats
+	if (pokemonHP) {
+		$("#pokemon-hp").append("<span>" + pokemonHP + "</span> <br>"); //Hit points
+	}
+	if (pokemonAttackStat) {
+		$("#pokemon-attackstat").append("<span>" + pokemonAttackStat + "</span> <br>"); //Hit points
+	}
+	if (pokemonDefenseStat) {
+		$("#pokemon-defencestat").append("<span>" + pokemonDefenseStat + "</span> <br>"); //Defence points
+	}
+	if (pokemonSpecAttStat) {
+		$("#pokemon-spec-att").append("<span>" + pokemonSpecAttStat + "</span> <br>"); //Special Attack
+	}
+	if (pokemonSpecDefStat) {
+		$("#pokemon-spec-def").append("<span>" + pokemonSpecDefStat + "</span> <br>"); //Special Attack
+	}
+	if (pokemonSpeedStat) {
+		$("#pokemon-speed").append("<span>" + pokemonSpeedStat + "</span> <br>"); //Special Attack
+	}
 
-    $("#pokemon-ability1").append("<p>" + pokemonAbility1 + "</p>");
-    $("#pokemon-ability2").append("<p>" + pokemonAbility2 + "</p>");
-    if (pokemonAbility3) {
-        $("#pokemon-ability3").append("<p>" + pokemonAbility3 + "</p>");
-    }
-    if (pokemonAbility4) {
-        $("#pokemon-ability4").append("<p>" + pokemonAbility4 + "</p>");
-    }
+
 });
+	
 
 // return info from Wikipedia's first paragraph
 var endPoint = "https://en.wikipedia.org/w/api.php";
@@ -126,8 +168,9 @@ $.ajax({
 	var parsedSectionReplaced2 = parsedSectionReplaced.replace(/<\/sup>/g, '')
 	*/
 	var rawParagraphHtml = $('<div></div>').html(parsedSection);
-	$('#pokemon-text').html($(rawParagraphHtml).find('p'));
+	pokemonParagraph = $('#pokemon-description').html($(rawParagraphHtml).find('p'));
 	// var cleanedUp = $("a").contents().unwrap(); // https://api.jquery.com/unwrap/
+
 });
 
 
