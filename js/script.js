@@ -123,7 +123,7 @@ $.ajax({
 		$("#pokemon-type1").append("<span>" + pokemonType1 + "</span>");
 	}
 	if (pokemonType2) {
-		$("#pokemon-type2").append("<p>" + pokemonType2 + "</p>");
+		$("#pokemon-type2").append("<span>" + pokemonType2 + "</span>");
 	}
 	
 	if (pokemonSpecies) {

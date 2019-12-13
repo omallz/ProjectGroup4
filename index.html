@@ -21,12 +21,22 @@
 
       <div class="grid-x grid-padding-x">
         <div class="large-8 cell large-offset-2">
+          <p><h6>Pokémon is short for “Pocket Monsters", the original Japanese name. 
+            The franchise has its roots in a gaming magazine in the early 1980s in Japan—Game Freak, started by Satoshi Tajiri and Ken Sugimori. 
+            Tajiri was the writer, while Sugimori was the illustrator.
+            They soon realized that the arcade scene at the time wasn’t too hot anymore and decided to develop games themselves. 
+            This included games that were published by Nintendo on the NES and Game Boy like Yoshi and even games for SEGA like Magical Tarurūto-kun on the Mega Drive, SEGA’s console. </h6> </p>
+        </div>
+      </div>
+
+      <div class="grid-x grid-padding-x">
+        <div class="large-8 cell large-offset-2">
           <div class="callout">  
               <div class="grid-x grid-padding-x">
                 <div class="large-6 cell large-offset-3">
                   <form method = "get">
                     <div class="searchBox">
-                      <input type="text" class="input" name="pokemonz" placeholder="Enter Pokemon Name or Number">
+                      <input type="text" class="input" name="pokemonz" placeholder="Enter Pokemon Name">
                       <i class="fas fa-search"></i>
                     </div>
                  </form>
@@ -42,89 +52,86 @@
 
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-            <h2 id=pokemon-name class = "text-center"></h2>
+        <div class="large-8 cell large-offset-2">
+            <h2 id="pokemon-name" class = "text-center"></h2>
         </div>
 
-        <div class = "large-12 cell">
-          <h4 id=pokemon-id class = "text-center">#</h4>
+        <div class = "large-8 cell large-offset-2">
+          <h4 id="pokemon-id" class = "text-center">#</h4>
         </div>
+      </div>
+
+      <div class = "grid-x grid-padding-x align-center">
+        <div class = "large-4 cell">
+          <div class = "callout alert">
+            <h2 id ="pokemon-type1" class = "text-center"> </h2>
+          </div>
+        </div>
+    
+        <div class = "large-4 cell">
+          <div class = "callout success">
+            <h2 id ="pokemon-type2" class = "text-center"> </h2>
+          </div>
+        </div>
+      </div>
+
+      <div class = "large-8 cell">
+        <div id = "pokemon-image1" style="width:500px;" class="float-center"></div>
       </div>
       <!--Ending Div Container-->
     </div>
 
+  </h4>
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="large-8 cell large-offset-2">
 
+              <ul class="tabs" data-tabs id="example-tabs">
+                  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">About</a></li>
+                  <li class="tabs-title"><a href="#panel2"> Base Stats</a></li>
+                  <li class="tabs-title"><a href="#panel5">Wikipedia</a></li>
+             </ul>
 
-  <div class = "grid-x grid-padding-x align-center">
+             <div class="tabs-content" data-tabs-content="example-tabs">
+                <div class="tabs-panel is-active" id="panel1">
+                  <span id= "pokemon-species">Species: </span>
+                  <span id= "pokemon-height">Height: </span>
+                  <span id= "pokemon-weight">Weight: </span>
+                  <span id= "pokemon-ability1">Abilities: </span>
+                  <span id= "pokemon-ability2"></span>
+                  <span id= "pokemon-ability3"></span>
+                  <span id= "pokemon-ability4"></span>
+                </div>
 
-    <div class = "large-3 cell">
-      <div class = "callout alert">
-        <h2 id ="pokemon-type1">Type 1 = </h2>
-      </div>
+                
+                <div class="tabs-panel" id="panel2">
+                  <span id= "pokemon-hp">HP: </span>
+                  <span id= "pokemon-attackstat">Attack: </span>
+                  <span id= "pokemon-defencestat">Defence: </span>
+                  <span id= "pokemon-spec-att">Special Attack: </span>
+                  <span id= "pokemon-spec-def">Special Defence: </span>
+                  <span id= "pokemon-speed">Special Defence: </span>
+                </div>
 
-    </div>
-     <div class = "large-3 cell">
-        <div class = "callout warning">
-          <h2 id ="pokemon-type2"> Type 2 = </h2>
-        </div>
-    </div>
+                <div class="tabs-panel" id="panel3">
+                    <p>Evolution</p>
+                </div>
 
+                <div class="tabs-panel" id="panel4">
+                    <p>Moves</p>
+                    <img class="thumbnail" src="assets/bulbPixel.jpg">
+                </div>
 
-    <div class = "large-12 cell">
-      <div id = "pokemon-image1" style="width:500px;" class="float-center">
-      </div>
-    </div>
+                <div class="tabs-panel" id="panel5">
+                    <div id = "pokemon-description"></div>
+                </div>
 
-    <div class="row">
-      <div class="columns">
-        <ul class="tabs" data-tabs id="example-tabs">
-          <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">About</a></li>
-          <li class="tabs-title"><a href="#panel2">Base Stats</a></li>
-          <li class="tabs-title"><a href="#panel5">Wikipedia</a></li>
-        </ul>
-    
-        <div class="tabs-content" data-tabs-content="example-tabs">
-          <div class="tabs-panel is-active" id="panel1">
-            <span id= "pokemon-species">Species: </span>
-            <span id= "pokemon-height">Height: </span>
-            <span id= "pokemon-weight">Weight: </span>
-            <span id= "pokemon-ability1">Abilities: </span>
-            <span id= "pokemon-ability2"></span>
-            <span id= "pokemon-ability3"></span>
-            <span id= "pokemon-ability4"></span>
+              </div>
 
-
-          </div>
-          <div class="tabs-panel" id="panel2">
-            <span id= "pokemon-hp">HP: </span>
-            <span id= "pokemon-attackstat">Attack: </span>
-            <span id= "pokemon-defencestat">Defence: </span>
-            <span id= "pokemon-spec-att">Special Attack: </span>
-            <span id= "pokemon-spec-def">Special Defence: </span>
-            <span id= "pokemon-speed">Special Defence: </span>
-            
-            
-          </div>
-          <div class="tabs-panel" id="panel3">
-            <p>Evolution</p>
-          </div>
-          <div class="tabs-panel" id="panel4">
-            <p>Moves</p>
-            <img class="thumbnail" src="assets/bulbPixel.jpg">
-          </div>
-          <div class="tabs-panel" id="panel5">
-            <div id = "pokemon-description"></div>
-          </div>
-          
           </div>
         </div>
-      </div>
-
-
-
-  </div>
-
-
+      <!--Ending Div Container-->
+    </div>
     
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/what-input.js"></script>

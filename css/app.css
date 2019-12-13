@@ -1,9 +1,10 @@
-#pokemonName {
+
+#pokemon-name {
     font-size: 60px;
     color: cornsilk;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: black;
-    border-radius: 30px
+    border-radius: 30px;
 }
 
 
@@ -42,10 +43,36 @@ h5 {
 }
 
 
-#pokemon-type1 {
-    border-radius: 25px;
-}
-
 .callout {
     border-radius: 40px;
+    margin-top: 20px ;
+    margin-bottom: 20px;
+}
+
+.input {
+    margin: 0 0 0rem;
+}
+
+
+#pokemon-image1{
+    background-image: url(../assets/light-blue-background.jpg.jpg);
+    background-repeat: no-repeat;
+    background-size: 500px 500px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+
+li {
+    background-color: yellow;
+    font-optical-sizing: 50px;
+}
+
+.tabs-panel {
+    color:black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color:lightyellow;
+}
+h6 {
+    text-align: justify;
+    font-style: italic;
 }
