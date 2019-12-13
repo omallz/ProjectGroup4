@@ -1,136 +1,117 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-8 cell large-offset-2">
-          <h1 class = "text-center">What Pokemon are you looking for?</h1>
-            <img src="./assets/Header.jpg">
-        </div>
-      </div>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Pokedex</title>
+		<link rel="stylesheet" href="css/foundation.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"
+		/>
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	</head>
+	<body onload="showDetails()">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-center"> <!-- Aligned to the center -->
+				<div class="pokedex-container cell small-4">
+					<div id="pokemon-home" style="display:none;">
+						<h1 class = "text-center">What Pokemon are you looking for?</h1>
+						<img src="./assets/Header.jpg">
+						
+						<div class="searchBox">
+							<form method = "get">
+								<input type="text" class="input" id="pokemon-search" name="pokemon-search" placeholder="Enter Pokemon Name or Number">
+								<button id="pokemon-search-button" type="submit"><i class="fas fa-search"></i></button>
+							</form>
+						</div>
+						<div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel ex ut libero posuere congue et ut lacus. Sed lacus felis, lacinia pulvinar mauris vitae, ultrices commodo quam. Sed venenatis vitae sapien nec feugiat. Morbi quis lectus mollis, vulputate est vel, lobortis ligula. </p>
+							<p>In sollicitudin vulputate dolor nec ullamcorper. Aliquam pretium diam a nunc volutpat maximus. Nam molestie venenatis lectus, vitae lacinia augue auctor ultrices. Etiam ante ex, cursus vitae turpis nec, laoreet eleifend risus. Integer congue felis non metus elementum, sit amet rhoncus ligula pulvinar. Integer laoreet lorem id lacinia consequat.</p>
+						</div>	
+					</div>
+					<!--
+					<div id="pokemon-error" style="display:none;">
+						<h1 class = "text-center">Please try again</h1>
+						<img src="./assets/Header.jpg">
+						<div class="callout">  
+							<form method = "get">
+								<div class="searchBox">
+									<input type="text" class="input" name="pokemon-search" placeholder="Enter Pokemon Name or Number">
+									<button id="pokemon-search-button" type="submit"><i class="fas fa-search"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+					-->
+					<!-- Start of Pokemon Display -->
+					<div id="pokemon-details" style="display:none;">
+						<div style="text-align:center;margin-top:10px;">
+							<a href="index.html" class="button">Home</a>
+						</div>
+						
+						<h2 id=pokemon-name class = "text-center"></h2>
+						<h4 id=pokemon-id class = "text-center">#</h4>
 
-      <div class="grid-x grid-padding-x">
-        <div class="large-8 cell large-offset-2">
-          <div class="callout">  
-              <div class="grid-x grid-padding-x">
-                <div class="large-6 cell large-offset-3">
-                  <form method = "get">
-                    <div class="searchBox">
-                      <input type="text" class="input" name="pokemonz" placeholder="Enter Pokemon Name or Number">
-                      <i class="fas fa-search"></i>
-                    </div>
-                 </form>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-      <!-- Ending Div Container-->
-    </div>
-
-
-
-    <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-            <h2 id=pokemon-name class = "text-center"></h2>
-        </div>
-
-        <div class = "large-12 cell">
-          <h4 id=pokemon-id class = "text-center">#</h4>
-        </div>
-      </div>
-      <!--Ending Div Container-->
-    </div>
-
-
-
-  <div class = "grid-x grid-padding-x align-center">
-
-    <div class = "large-3 cell">
-      <div class = "callout alert">
-        <h2 id ="pokemon-type1">Type 1 = </h2>
-      </div>
-
-    </div>
-     <div class = "large-3 cell">
-        <div class = "callout warning">
-          <h2 id ="pokemon-type2"> Type 2 = </h2>
-        </div>
-    </div>
-
-
-    <div class = "large-12 cell">
-      <div id = "pokemon-image1" style="width:500px;" class="float-center">
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="columns">
-        <ul class="tabs" data-tabs id="example-tabs">
-          <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">About</a></li>
-          <li class="tabs-title"><a href="#panel2">Base Stats</a></li>
-          <li class="tabs-title"><a href="#panel5">Wikipedia</a></li>
-        </ul>
-    
-        <div class="tabs-content" data-tabs-content="example-tabs">
-          <div class="tabs-panel is-active" id="panel1">
-            <span id= "pokemon-species">Species: </span>
-            <span id= "pokemon-height">Height: </span>
-            <span id= "pokemon-weight">Weight: </span>
-            <span id= "pokemon-ability1">Abilities: </span>
-            <span id= "pokemon-ability2"></span>
-            <span id= "pokemon-ability3"></span>
-            <span id= "pokemon-ability4"></span>
-
-
-          </div>
-          <div class="tabs-panel" id="panel2">
-            <span id= "pokemon-hp">HP: </span>
-            <span id= "pokemon-attackstat">Attack: </span>
-            <span id= "pokemon-defencestat">Defence: </span>
-            <span id= "pokemon-spec-att">Special Attack: </span>
-            <span id= "pokemon-spec-def">Special Defence: </span>
-            <span id= "pokemon-speed">Special Defence: </span>
-            
-            
-          </div>
-          <div class="tabs-panel" id="panel3">
-            <p>Evolution</p>
-          </div>
-          <div class="tabs-panel" id="panel4">
-            <p>Moves</p>
-            <img class="thumbnail" src="assets/bulbPixel.jpg">
-          </div>
-          <div class="tabs-panel" id="panel5">
-            <div id = "pokemon-description"></div>
-          </div>
-          
-          </div>
-        </div>
-      </div>
-
-
-
-  </div>
-
-
-    
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/what-input.js"></script>
-    <script src="js/foundation.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/script.js"></script>
-    
-  </body>
+						<a data-toggle="exampleModal5" aria-controls="exampleModal5">
+							<div id = "pokemon-image1" class="float-center"></div>
+						</a>
+						<div class="grid-x align-center" style="margin-top:16px">
+							<div class = "callout cell small-4 pokemon-type-1" style="margin-right:5px;">
+								<h5 id ="pokemon-type1"></h2>
+							</div>
+							<div class = "callout cell small-4 pokemon-type-2" style="margin-left:5px;display:none;">
+								<h5 id ="pokemon-type2"></h2>
+							</div>
+						</div>
+						<div class="small reveal" id="exampleModal5" data-reveal>
+							<div id="pokemon-image2"></div>
+							<button class="close-button" data-close aria-label="Close reveal" type="button">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<ul class="tabs" data-tabs id="example-tabs">
+							<li class="tabs-title is-active"><a href="#panel1" aria-selected="true">About</a></li>
+							<li class="tabs-title"><a href="#panel2">Base Stats</a></li>
+							<li class="tabs-title"><a href="#panel5">Wikipedia</a></li>
+						</ul>
+						<div class="tabs-content" data-tabs-content="example-tabs">
+							<div class="tabs-panel is-active" id="panel1">
+								<span id="pokemon-species">Species: </span><br>
+								<span id="pokemon-height">Height: </span><br>
+								<span id="pokemon-weight">Weight: </span><br>
+								<span id="pokemon-ability1">Abilities: </span>
+								<span id="pokemon-ability2"></span>
+								<span id="pokemon-ability3"></span>
+								<span id="pokemon-ability4"></span><br>
+							</div>
+							<div class="tabs-panel" id="panel2">
+								<span id="pokemon-hp">HP: </span><br>
+								<span id="pokemon-attack">Attack: </span><br>
+								<span id="pokemon-defence">Defence: </span><br>
+								<span id="pokemon-spec-att">Special Attack: </span><br>
+								<span id="pokemon-spec-def">Special Defence: </span><br>
+								<span id="pokemon-speed">Special Defence: </span><br>
+							</div>
+							<div class="tabs-panel" id="panel3">
+								<p>Evolution</p>
+							</div>
+							<div class="tabs-panel" id="panel4">
+								<p>Moves</p>
+								<img class="thumbnail" src="assets/bulbPixel.jpg">
+							</div>
+							<div class="tabs-panel" id="panel5">
+								<div id="pokemon-description"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-3.4.1.js"></script>
+		<script src="js/what-input.js"></script>
+		<script src="js/foundation.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/script.js"></script>
+	</body>
 </html>

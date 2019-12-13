@@ -1,0 +1,97 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+#pokemonName {
+    font-size: 60px;
+    color: cornsilk;
+    background-color: black;
+    border-radius: 30px
+}
+
+#pokemonNumber {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h5 {
+    text-align: center;
+}
+
+.searchBox {
+    position: relative;
+}
+
+.searchBox i {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    opacity: .4;
+}
+
+#pokemon-type1, #pokemon-type2 {
+	text-align: center;
+}
+
+#pokemon-search-button {
+	cursor: pointer;
+}
+
+#pokemon-details {
+	text-transform:capitalize;
+}
+
+.img-responsive {
+	display: block;
+	margin:0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+#pokemon-species, #pokemon-height, #pokemon-weight, #pokemon-ability1, #pokemon-abilities, #pokemon-hp, #pokemon-attack, #pokemon-defence, #pokemon-spec-att, #pokemon-spec-def, #pokemon-speed {
+	font-weight: 600;
+}
+
+.pokemon-data {
+	font-weight: 400;
+}
+
+#pokemon-image1 {
+	border-radius: 40px;
+}
+
+#pokemon-search {
+	margin-top:10px;
+}
+
+#pokemon-image1, #pokemon-search, .pokemon-type-1, .pokemon-type-2 {
+	border-radius: 40px;
+	background-color: #FBFCFC;
+	border: 1px solid #ecf0f1;
+}
+
+.pokedex-container {
+	min-height: 100vh;
+	border: 1px solid #ecf0f1;
+	border-radius: 40px;
+}
+
+.tabs {
+	border-radius: 40px;
+}
+
+.tabs-title a {
+	border-radius: 40px;
+}
+
+.tabs-content {
+	border: 0;
+	margin-top: 10px;
+}
+
+.tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
+	background: #fbfcfc;
+}
