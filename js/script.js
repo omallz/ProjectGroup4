@@ -1,7 +1,8 @@
 // Get core Pokemon information
 var searchValue = ""; // number or name
 var params = new URLSearchParams(document.location.search.substring(1));
-var searchValue = params.get("pokemonz"); 
+var searchValue = params.get("pokemon-search"); 
+var validPokemon = false;
 
 $.ajax({
     url: "https://pokeapi.co/api/v2/pokemon/" + searchValue,
@@ -15,7 +16,7 @@ $.ajax({
 	var pokemonIDPrefixed = pokemonIDString.padStart(3, '0');
 	var pokemonMainImage = "https://serebii.net/pokemon/art/" + pokemonIDPrefixed + ".png";
 	$("#pokemon-image1").append("<img src=" + pokemonMainImage + ">");
-
+	$("#pokemon-image2").append("<img class='img-responsive' src=" + pokemonMainImage + ">");
 	// General Attributes
     var pokemonName = response.name;
     var pokemonHeight = response.height * 10 + " cm";
@@ -32,14 +33,14 @@ $.ajax({
 
 	// Evolutions
 
-	var pokemon
-	
+	console.log(response.types[1]);
 	// Types
 	if (response.types[0].type.name) {
 		var pokemonType1 = response.types[0].type.name;
 	}
-	if (response.types[1] !== undefined) {
+	if (response.types[1] != undefined) {
 		var pokemonType2 = response.types[1].type.name;
+		$(".pokemon-type-2").show();
 	}
 	
 	// Abilities
@@ -105,51 +106,109 @@ $.ajax({
 	// Append To Page
     $("#pokemon-id").append("<span>" + pokemonIDPrefixed + "</span>");
     $("#pokemon-name").append("<span>" + pokemonName + "</span>");
-    $("#pokemon-height").append("<span>" + pokemonHeight + "</span> <br>"); // convert decimeters to centimeters
-	$("#pokemon-weight").append("<span>" + pokemonWeight + "</span> <br>"); // convert hectograms to now kilograms
+    $("#pokemon-height").append("<span class='pokemon-data'>" + pokemonHeight + "</span>"); // convert decimeters to centimeters
+	$("#pokemon-weight").append("<span class='pokemon-data'>" + pokemonWeight + "</span>"); // convert hectograms to now kilograms
 	
-	$("#pokemon-ability1").append("<span>" + pokemonAbility1 + "</span>" + ",");
-	$("#pokemon-ability2").append("<span>" + pokemonAbility2 + "</span>" + ",");
+	$("#pokemon-ability1").append("<span class='pokemon-data'>" + pokemonAbility1 + "</span>" + ",");
+	$("#pokemon-ability2").append("<span class='pokemon-data'>" + pokemonAbility2 + "</span>" + ",");
 	
     if (pokemonAbility3) {
-        $("#pokemon-ability3").append("<span>" + pokemonAbility3 + "</span>" + ",");
+        $("#pokemon-ability3").append("<span class='pokemon-data'>" + pokemonAbility3 + "</span>" + ",");
     }
     if (pokemonAbility4) {
-        $("#pokemon-ability4").append("<span>" + pokemonAbility4 + "</span>" + ",");
+        $("#pokemon-ability4").append("<span class='pokemon-data'>" + pokemonAbility4 + "</span>" + ",");
     }
-
 
 	if (pokemonType1) {
 		$("#pokemon-type1").append("<span>" + pokemonType1 + "</span>");
+
+		/*
+		if (pokemonType1 = "normal") {
+			$("#pokemon-image1").css("background-color", "#A8A878");
+		} else if (pokemonType1 = "fighting") {
+			$("#pokemon-image1").css("background-color", "#F08030");
+		}
+		else if (pokemonType1 = "flying") {
+			$("#pokemon-image1").css("background-color", "#C03028");
+		}
+		else if (pokemonType1 = "poison") {
+			$("#pokemon-image1").css("background-color", "#A890F0");
+		}
+		else if (pokemonType1 = "ground") {
+			$("#pokemon-image1").css("background-color", "#E0C068");
+		}
+		else if (pokemonType1 = "rock") {
+			$("#pokemon-image1").css("background-color", "#B8A038");
+		}
+		else if (pokemonType1 = "bug") {
+			$("#pokemon-image1").css("background-color", "#A8B820");
+		}
+		else if (pokemonType1 = "ghost") {
+			$("#pokemon-image1").css("background-color", "#705898");
+		}
+		else if (pokemonType1 = "steel") {
+			$("#pokemon-image1").css("background-color", "#B8B8D0");
+		}
+		else if (pokemonType1 = "fire") {
+			$("#pokemon-image1").css("background-color", "#F08030");
+		}
+		else if (pokemonType1 = "water") {
+			$("#pokemon-image1").css("background-color", "#6890F0");
+		}
+		else if (pokemonType1 = "grass") {
+			$("#pokemon-image1").css("background-color", "#78C850");
+		}
+		else if (pokemonType1 = "electric") {
+			$("#pokemon-image1").css("background-color", "#F8D030");
+		}
+		else if (pokemonType1 = "psychic") {
+			$("#pokemon-image1").css("background-color", "#F85888");
+		}
+		else if (pokemonType1 = "ice") {
+			$("#pokemon-image1").css("background-color", "#98D8D8");
+		}
+		else if (pokemonType1 = "dragon") {
+			$("#pokemon-image1").css("background-color", "#7038F8");
+		}
+		else if (pokemonType1 = "dark") {
+			$("#pokemon-image1").css("background-color", "#705848");
+		}
+		else if (pokemonType1 = "fairy") {
+			$("#pokemon-image1").css("background-color", "#EE99AC");
+		}
+		else {
+
+		} */
+
 	}
-	if (pokemonType2) {
-		$("#pokemon-type2").append("<p>" + pokemonType2 + "</p>");
+	if (pokemonType2 != undefined) {
+		$("#pokemon-type2").append("<span>" + pokemonType2 + "</span>");
 	}
 	
 	if (pokemonSpecies) {
-		$("#pokemon-species").append("<span>" + pokemonSpecies + "</span> <br>");
+		$("#pokemon-species").append("<span class='pokemon-data'>" + pokemonSpecies + "</span>");
 	}
+
 	// Base Stats
 	if (pokemonHP) {
-		$("#pokemon-hp").append("<span>" + pokemonHP + "</span> <br>"); //Hit points
+		$("#pokemon-hp").append("<span class='pokemon-data'>" + pokemonHP + "</span>"); //Hit points
 	}
 	if (pokemonAttackStat) {
-		$("#pokemon-attackstat").append("<span>" + pokemonAttackStat + "</span> <br>"); //Hit points
+		$("#pokemon-attack").append("<span class='pokemon-data'>" + pokemonAttackStat + "</span>"); //Hit points
 	}
 	if (pokemonDefenseStat) {
-		$("#pokemon-defencestat").append("<span>" + pokemonDefenseStat + "</span> <br>"); //Defence points
+		$("#pokemon-defence").append("<span class='pokemon-data'>" + pokemonDefenseStat + "</span>"); //Defence points
 	}
 	if (pokemonSpecAttStat) {
-		$("#pokemon-spec-att").append("<span>" + pokemonSpecAttStat + "</span> <br>"); //Special Attack
+		$("#pokemon-spec-att").append("<span class='pokemon-data'>" + pokemonSpecAttStat + "</span>"); //Special Attack
 	}
 	if (pokemonSpecDefStat) {
-		$("#pokemon-spec-def").append("<span>" + pokemonSpecDefStat + "</span> <br>"); //Special Attack
+		$("#pokemon-spec-def").append("<span class='pokemon-data'>" + pokemonSpecDefStat + "</span>"); //Special Attack
 	}
 	if (pokemonSpeedStat) {
-		$("#pokemon-speed").append("<span>" + pokemonSpeedStat + "</span> <br>"); //Special Attack
+		$("#pokemon-speed").append("<span class='pokemon-data'>" + pokemonSpeedStat + "</span>"); //Special Attack
 	}
-
-
+	
 });
 	
 
@@ -167,11 +226,21 @@ $.ajax({
 	var parsedSectionReplaced = parsedSection.replace(/<sup>/g, '');
 	var parsedSectionReplaced2 = parsedSectionReplaced.replace(/<\/sup>/g, '')
 	*/
-	var rawParagraphHtml = $('<div></div>').html(parsedSection);
-	pokemonParagraph = $('#pokemon-description').html($(rawParagraphHtml).find('p'));
-	// var cleanedUp = $("a").contents().unwrap(); // https://api.jquery.com/unwrap/
-
+	if (searchValue != undefined) {
+		var rawParagraphHtml = $('<div></div>').html(parsedSection);
+		pokemonParagraph = $('#pokemon-description').html($(rawParagraphHtml).find('p'));
+		// var cleanedUp = $("a").contents().unwrap(); // https://api.jquery.com/unwrap/
+	} else {
+		pokemonParagraph = $('#pokemon-description').html("No information found");
+	}
 });
 
-
-
+function showDetails() {
+	if (searchValue) {
+		$("#pokemon-details").show();
+		$("#pokemon-home").hide();
+	} else {
+		$("#pokemon-details").hide();
+		$("#pokemon-home").show();
+	}
+}
