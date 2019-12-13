@@ -1,5 +1,5 @@
 // Get core Pokemon information
-var searchValue = ""; // number or name, will come from the search in future https://stackoverflow.com/questions/406192/get-current-url-with-jquery
+var searchValue = ""; // number or name
 var params = new URLSearchParams(document.location.search.substring(1));
 var searchValue = params.get("pokemonz"); 
 
